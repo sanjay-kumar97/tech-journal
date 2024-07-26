@@ -1,5 +1,5 @@
 import Image from "next/image";
-import TextEditor from "../Components/TextEditor"
+import TextEditor from "../TextEditor"
 
 export default function Home() {
   return (

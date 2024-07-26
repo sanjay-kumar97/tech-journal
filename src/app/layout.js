@@ -3,7 +3,7 @@ import "./globals.css";
 // import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
 import { SignedIn, ClerkProvider, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
-import { Toaster } from "@/Components/ui/sonner";
+import { Toaster } from "../Components/ui/sonner";
 
 
 const inter = Inter({ subsets: ["latin"] });

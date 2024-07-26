@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
-import { Button } from "@/components/ui/button"
-import { Input } from './ui/input';
-import { Label } from './ui/label';
+import { Button } from "./components/ui/button"
+import { Input } from './Components/ui/input';
+import { Label } from './Components/ui/label';
 import { Formik } from 'formik';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
