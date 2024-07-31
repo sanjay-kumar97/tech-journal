@@ -9,37 +9,11 @@ import { Formik } from 'formik';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import { toast } from 'sonner';
+import Tiptap from "./Tiptap.jsx"
 
 
 const TextEditor = () => {
 
-    const modules = {
-        toolbar: [
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            //   [{ 'background': [] }, { 'color': [] }],
-            [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-        ],
-        clipboard: {
-            matchVisual: false,
-        },
-    };
-
-    const formats = [
-        'header',
-        'font',
-        'size',
-        'bold',
-        'italic',
-        'underline',
-        'strike',
-        'blockquote',
-        'list',
-        'bullet',
-        'indent',
-        'background',
-        'color',
-    ];
     const postSchema = z.object({
         title: z.string({
             required_error: 'Title is required',}),
@@ -103,14 +77,7 @@ const TextEditor = () => {
                 {errors.category && touched.category ? <div className='text-red-600 text-sm'>{errors.category}</div> : null}
             </div>
             <section className='border-black rounded-md border-1 text-black flex flex-col gap-2'>
-                <ReactQuill
-                    onChange={(value)=>setFieldValue('content', value)}
-                    value={values.content}
-                    modules={modules}
-                    formats={formats}
-                    placeholder="Describe your post..."
-                    theme="snow"
-                />
+                <Tiptap value={values.content} setFieldValue={setFieldValue}/>
                 {errors.content && touched.content ? <div className='text-red-600 text-sm'>{errors.content}</div> : null}
             </section>
             <div className="md:flex md:flex-row-reverse">
