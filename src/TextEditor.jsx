@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
-import { Button } from "./components/ui/button"
+import { Button } from "./Components/ui/button"
 import { Input } from './Components/ui/input';
 import { Label } from './Components/ui/label';
 import { Formik } from 'formik';
