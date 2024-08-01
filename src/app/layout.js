@@ -1,7 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import "react-quill/dist/quill.bubble.css";
-import "react-quill/dist/quill.snow.css";
 import { SignedIn, ClerkProvider, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
 import { Toaster } from "../Components/ui/sonner";
 
