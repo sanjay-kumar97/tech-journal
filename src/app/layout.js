@@ -1,27 +1,22 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { getKindeServerSession, LoginLink, RegisterLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/server";
-import { Toaster } from "sonner";
+} from "@/Components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Label } from "@/components/ui/label";
+  DropdownMenuTrigger
+} from "@/Components/ui/dropdown-menu";
+import { Label } from "@/Components/ui/label";
+import { getKindeServerSession, LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
+import "./globals.css";
 
 
 const inter = Inter({ subsets: ["latin"] });
