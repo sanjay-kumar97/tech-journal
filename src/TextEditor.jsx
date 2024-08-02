@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
-import Tiptap from "./Tiptap.jsx"
+import Tiptap from "@/Tiptap"
 import { toast } from 'sonner';
-import { Input } from '@/components/ui/input.jsx';
-import { Label } from '@/components/ui/label.jsx';
-import { Button } from '@/components/ui/button.jsx';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 
 
 

@@ -4,7 +4,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "../Components/ui/avatar"
+} from "@/components/ui/avatar"
 import { getKindeServerSession, LoginLink, RegisterLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Toaster } from "sonner";
 import {
