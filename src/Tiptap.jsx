@@ -6,7 +6,6 @@ import {
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import { useEffect, useState } from 'react'
-import { on } from 'events'
 
 const Tiptap = (props) => {
     const {value, setFieldValue} = props
