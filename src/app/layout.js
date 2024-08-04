@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SignedIn, ClerkProvider, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
+import { Toaster } from "../Components/ui/sonner";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +20,15 @@ export default function RootLayout({ children }) {
             <h1 className="text-black">Tech Journal</h1>
             <UserButton showName />
           </header>
-          <main className="flex item-center justify-center">
+          <section className="flex item-center justify-center h-screen">
             <SignedOut>
               <SignIn routing="hash" />
             </SignedOut>
             <SignedIn>
               {children}
+              <Toaster />
             </SignedIn>
-          </main>
+          </section>
         </body>
       </html>
     </ClerkProvider>
