@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 
 // Local imports
-import useDB from "@/app/actions/db";
+import { useDB } from "../../actions/db";
 import { NextErrorHandler } from "../errorHandler";
 
 export async function POST(request) {

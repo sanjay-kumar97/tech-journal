@@ -2,7 +2,7 @@
 
 import { Client } from "pg";
 
-const useDB = () => ({
+export const useDB = () => ({
   async executeQuery(text, params) {
     const client = new Client(process.env.DATABASE_URL);
     await client.connect();
@@ -30,5 +30,3 @@ const useDB = () => ({
     return await this.executeQuery(query);
   },
 });
-
-export default useDB;
