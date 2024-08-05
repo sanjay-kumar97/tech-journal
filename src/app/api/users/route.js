@@ -7,7 +7,7 @@ import { NextErrorHandler } from "../errorHandler";
 
 export async function GET() {
   try {
-    const db = useDB();
+    const db = await useDB();
     const users = await db.executeQuery("SELECT * FROM users");
 
     return NextResponse.json(users, { status: 200 });

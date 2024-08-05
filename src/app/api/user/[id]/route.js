@@ -7,16 +7,19 @@ import { NextErrorHandler } from "../../errorHandler";
 
 export async function GET(_request, { params }) {
   try {
+    const db = await useDB();
     const { id: userId } = params;
 
     if (!userId) throw new Error("Missing userId");
 
-    const db = useDB();
-    const user = await db.executeQuery("SELECT * FROM users WHERE id = ($1)", [
-      userId,
-    ]);
+    const user =
+      (await db.executeQuery("SELECT * FROM users WHERE id = ($1)", [
+        userId,
+      ])) ?? [];
 
-    return NextResponse.json(user, { status: 200 });
+    if (user.length === 0) throw new Error("User not found");
+
+    return NextResponse.json(user[0], { status: 200 });
   } catch (error) {
     return NextErrorHandler(error);
   }
@@ -24,11 +27,11 @@ export async function GET(_request, { params }) {
 
 export async function DELETE(_request, { params }) {
   try {
+    const db = useDB();
     const { id: userId } = params;
 
     if (!userId) throw new Error("Missing userId");
 
-    const db = useDB();
     await db.executeQuery("DELETE FROM users WHERE id = ($1)", [userId]);
 
     return NextResponse.json(
@@ -42,6 +45,7 @@ export async function DELETE(_request, { params }) {
 
 export async function PATCH(request, { params }) {
   try {
+    const db = useDB();
     const { id: userId } = params;
 
     if (!userId) throw new Error("Missing userId");
@@ -49,7 +53,6 @@ export async function PATCH(request, { params }) {
     const body = await request.json();
     const { name } = body;
 
-    const db = useDB();
     await db.executeQuery("UPDATE users SET name = ($1) WHERE id = ($2)", [
       name,
       userId,
