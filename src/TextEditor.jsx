@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from "./Components/ui/button"
-import { Input } from './Components/ui/input';
-import { Label } from './Components/ui/label';
 import { Formik } from 'formik';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
+import Tiptap from "@/Tiptap"
 import { toast } from 'sonner';
-import Tiptap from "./Tiptap.jsx"
+import { Input } from '@/Components/ui/input';
+import { Label } from '@/Components/ui/label';
+import { Button } from '@/Components/ui/button';
+
 
 
 const TextEditor = () => {
@@ -55,7 +56,7 @@ const TextEditor = () => {
             <form onSubmit={handleSubmit} className='flex flex-col gap-3 md:w-[75%]'>
             <div className='flex flex-col gap-2'>
                 <Label htmlFor="title">Title</Label>
-                <Input 
+                <Input
                     type="text" 
                     name="title"
                     onBlur={handleBlur}
