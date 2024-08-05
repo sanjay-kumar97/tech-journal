@@ -24,7 +24,7 @@
     "lucide-react": "^0.414.0",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "sonner": "^1.5.0",
