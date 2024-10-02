@@ -1,8 +1,17 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { SignedIn, ClerkProvider, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignIn,
+  UserButton,
+} from "@clerk/nextjs";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+import ThemeSwitcher from "../components/themeSwitcher";
+import { NextThemeProvider } from "../providers";
+import { poppins } from "../utils/fonts";
+
+import "./globals.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,20 +21,31 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="bg-white">
-          <header className="flex justify-between p-4">
-            <h1 className="text-black">Tech Journal</h1>
-            <UserButton showName />
-          </header>
-          <main className="flex item-center justify-center">
-            <SignedOut>
-              <SignIn routing="hash" />
-            </SignedOut>
-            <SignedIn>
-              {children}
-            </SignedIn>
-          </main>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${poppins.className} bg-primary dark:bg-secondary`}>
+          <NextThemeProvider>
+            <header className="flex justify-between py-6 px-16 text-2xl border-b-2 border-secondary dark:border-primary">
+              <Link href={"/"} className="text-secondary dark:text-primary">
+                Tech Journal
+              </Link>
+              <UserButton
+                showName
+                appearance={{
+                  elements: {
+                    userButtonOuterIdentifier:
+                      "text-xl text-secondary dark:text-primary",
+                  },
+                }}
+              />
+            </header>
+            <main className="flex item-center justify-center h-[calc(100vh-6rem)]">
+              <SignedOut>
+                <SignIn routing="hash" />
+              </SignedOut>
+              <SignedIn>{children}</SignedIn>
+            </main>
+            <ThemeSwitcher />
+          </NextThemeProvider>
         </body>
       </html>
     </ClerkProvider>
